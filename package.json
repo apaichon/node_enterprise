@@ -1,0 +1,26 @@
+{
+  "name": "node_enterprise",
+  "version": "1.0.0",
+  "description": "NodeJS Rest Api for Enterprise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apaichon/node_enterprise.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "RestApi",
+    "Enterprise",
+    "Course",
+    "Training"
+  ],
+  "author": "Apaichon Punopas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apaichon/node_enterprise/issues"
+  },
+  "homepage": "https://github.com/apaichon/node_enterprise#readme"
+}
