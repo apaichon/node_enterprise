@@ -1,23 +1,7 @@
 import { MongoClient } from 'mongodb'
-import { DB_SERVER } from '../../config'
+import { DB_SERVER } from '../config/db'
 
-export default class {
-  constructor () {
-
-  }
-
-  /** Properties */
-
-  /** Functions */
-    /** Open */
-    /** Close */
-    /** Insert */
-    /** Update */
-    /** Remove */
-    /** Find */
-}
-
-export default class {
+export class MongoDb {
 
   constructor (collectionName) {
     this.Collection = collectionName
@@ -151,7 +135,7 @@ export default class {
     if (!option) {
       option = {}
     }
-    data = { "$set": data }
+    data = {'$set': data }
     return new Promise((resolve, reject) => {
       this.Db.collection(this.Collection)
       .update(condition, data, option, (err, result) => {
@@ -167,8 +151,9 @@ export default class {
    */
   Remove (conditionWithOption) {
     let { condition, option } = conditionWithOption
+    if(!condition) throw 'Invalid condition!'
     if (!option) {
-      option = {}
+      option = {justOne: true}
     }
     return new Promise((resolve, reject) => {
       this.Db.collection(this.Collection)
