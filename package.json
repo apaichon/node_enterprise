@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/apaichon/node_enterprise#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
