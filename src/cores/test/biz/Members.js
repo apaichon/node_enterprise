@@ -51,7 +51,6 @@ describe('Members', () => {
     }
     it(`should found a member is ${memberInfo.name}`,async function () {
       let result = await member.Get(condition)
-      console.log('Find', result)
       assert.equal(result[0].name, memberInfo.name)
     })
   })
@@ -130,6 +129,5 @@ describe('Scenario CRUD of Members REST Api', () => {
       assert.equal(result.res.body.n, 1)
     })
   })
-
 
 })
