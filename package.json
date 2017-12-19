@@ -7,6 +7,7 @@
     "test": "mocha --compilers js:babel-core/register ./src/cores/test/**/*.js",
     "testlist": "mocha --compilers js:babel-core/register ./src/cores/test/testList/*.js",
     "dev": "nodemon src/index.js --exec babel-node",
+    "es6": "nodemon src/es6/index.js --exec babel-node",
     "gen": "nodemon src/cores/test/generateTest.js --exec babel-node"
   },
   "repository": {
