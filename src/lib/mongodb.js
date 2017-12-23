@@ -19,10 +19,13 @@ export default class {
    * Properties
    */
 
+  /**
+   * Collection Name Property
+   */
   set Collection (collectionName) {
     this._collection = collectionName
   }
-  
+
   get Collection () {
     return this._collection
   }
@@ -57,16 +60,6 @@ export default class {
    * Open database.
    * @param {*} callback 
    */
-  /* Open (callback) {
-    this.IsConnected = false
-   
-    MongoClient.connect(this.DbUrl, (err, db) => {
-      if (err) throw err
-      this.IsConnected = true
-      this.Db = db
-      callback(this.IsConnected)
-    })
-  } */
 
   Open () {
     this.IsConnected = false
@@ -85,12 +78,6 @@ export default class {
    * Close database.
    * @param {*} callback 
    */
-  /* Close (callback) {
-    this.Db.close(() => { 
-      this.IsConnected = false
-      callback(this.IsConnected)
-    })
-  }*/
 
   Close () {
     return new Promise((resolve, reject) => {
@@ -105,10 +92,6 @@ export default class {
    * @param {*} data 
    * @param {*} callback 
    */
-  /* Insert (data, callback) {
-    this.Db.collection(this.collection)
-    .insert(data, (result) => callback(result))
-  }*/
 
   Insert (data) {
     return new Promise((resolve, reject) => {
