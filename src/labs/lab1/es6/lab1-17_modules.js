@@ -1,5 +1,5 @@
-import * as math from "../lib/math"
-import { sum, pi } from "../lib/math"
+import * as math from "../../../lib/math"
+import { sum, pi } from "../../../lib/math"
 
 function testModule () {
   console.log("2π = " + math.sum(math.pi, math.pi))

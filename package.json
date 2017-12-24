@@ -7,8 +7,12 @@
     "test": "mocha --compilers js:babel-core/register ./src/cores/test/**/*.js",
     "testlist": "mocha --compilers js:babel-core/register ./src/cores/test/testList/*.js",
     "dev": "nodemon src/index.js --exec babel-node",
-    "es6": "nodemon src/es6/index.js --exec babel-node",
-    "gen": "nodemon src/cores/test/generateTest.js --exec babel-node"
+    "es6": "nodemon src/labs/lab1/es6/index.js --exec babel-node",
+    "gen": "nodemon src/cores/test/generateTest.js --exec babel-node",
+    "lab2-3": "nodemon src/labs/lab2/lab2-3/index.js --exec babel-node",
+    "lab2-4": "nodemon src/labs/lab2/lab2-4/index.js --exec babel-node",
+    "lab2-5": "nodemon src/labs/lab2/lab2-5/index.js --exec babel-node",
+    "lab2-6": "nodemon src/labs/lab2/lab2-6/index.js --exec babel-node"
   },
   "repository": {
     "type": "git",
@@ -32,6 +36,7 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-http": "^3.0.0",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "faker": "^4.1.0",
     "mongodb": "^2.2.33"

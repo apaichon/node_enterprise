@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb'
-import { DB_SERVER } from '../config/db'
+import { DB_SERVER } from '../../../cores/config/db'
 
 export class MongoDb {
 
@@ -62,16 +62,14 @@ export class MongoDb {
    * Open database.
    * @param {*} callback 
    */
-  Open () {
+  Open (callback) {
     this.IsConnected = false
-
-    return new Promise ((resolve, reject) => {
-      MongoClient.connect(this.DbUrl, (err, db) => {
-        if (err) reject(err)
-        this.IsConnected = true
-        this.Db = db
-        resolve(this.IsConnected)
-      })
+   
+    MongoClient.connect(this.DbUrl, (err, db) => {
+      if (err) throw err
+      this.IsConnected = true
+      this.Db = db
+      callback(this.IsConnected)
     })
   }
 
@@ -79,28 +77,21 @@ export class MongoDb {
    * Close database.
    * @param {*} callback 
    */
-  Close () {
-    return new Promise((resolve, reject) => {
-      this.Db.close(() => {
-        this.IsConnected = false
-        resolve(this.IsConnected)
-      })
+  Close (callback) {
+    this.Db.close(() => { 
+      this.IsConnected = false
+      callback(this.IsConnected)
     })
   }
+
   /**
    * Insert data to database.
    * @param {*} data 
    * @param {*} callback 
    */
-  
-  Insert (data) {
-    return new Promise((resolve, reject) => {
-      this.Db.collection(this.Collection)
-      .insert(data, (err, result) => {
-        if (err) reject(err)
-        resolve(result)
-      })
-    })
+  Insert (data, callback) {
+    this.Db.collection(this.Collection)
+    .insert(data, (err, result) => callback(result))
   }
 
   /**
