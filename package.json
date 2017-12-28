@@ -12,7 +12,14 @@
     "lab2-3": "nodemon src/labs/lab2/lab2-3/index.js --exec babel-node",
     "lab2-4": "nodemon src/labs/lab2/lab2-4/index.js --exec babel-node",
     "lab2-5": "nodemon src/labs/lab2/lab2-5/index.js --exec babel-node",
-    "lab2-6": "nodemon src/labs/lab2/lab2-6/index.js --exec babel-node"
+    "lab2-6": "nodemon src/labs/lab2/lab2-6/index.js --exec babel-node",
+    "lab3-1": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-1/index.js",
+    "lab3-2": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-2/index.js",
+    "lab3-3": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-3/index.js",
+    "lab3-4": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-4/index.js",
+    "lab3-5": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-5/index.js",
+    "lab3-6": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-6/index.js",
+    "lab3-7": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-7/index.js"
   },
   "repository": {
     "type": "git",
