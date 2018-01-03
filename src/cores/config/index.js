@@ -1,0 +1,1 @@
+export { LOG_PATH } from './log'

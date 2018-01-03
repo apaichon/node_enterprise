@@ -10,8 +10,5 @@ let data = {
 
 db.Open()
 .then((connected) => db.Insert(data))
-.then((inserted) => { 
-    console.log(inserted) 
-    db.Close()
-  }
-)
+.then((inserted) => db.Close())
+  

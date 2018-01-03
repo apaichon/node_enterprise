@@ -19,7 +19,9 @@
     "lab3-4": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-4/index.js",
     "lab3-5": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-5/index.js",
     "lab3-6": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-6/index.js",
-    "lab3-7": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-7/index.js"
+    "lab3-7": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-7/index.js",
+    "lab4-1": "nodemon src/labs/lab4/lab4-1/index.js --exec babel-node",
+    "lab4-2": "nodemon src/labs/lab4/lab4-2/index.js --exec babel-node"
   },
   "repository": {
     "type": "git",
@@ -39,14 +41,24 @@
   },
   "homepage": "https://github.com/apaichon/node_enterprise#readme",
   "dependencies": {
+    "apollo-server-express": "^1.3.2",
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-http": "^3.0.0",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "express-sessions": "^1.0.6",
     "faker": "^4.1.0",
-    "mongodb": "^2.2.33"
+    "graphql": "^0.12.3",
+    "graphql-iso-date": "^3.3.0",
+    "graphql-tools": "^2.14.1",
+    "moment": "^2.20.1",
+    "mongodb": "^2.2.33",
+    "useragent": "^2.2.1",
+    "uuid-lib": "0.0.6",
+    "validate.js": "^0.12.0",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
