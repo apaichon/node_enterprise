@@ -1,1 +1,5 @@
 export { CentralizedApi } from './CentralizedApi'
+export { UserAgent } from './UserAgent'
+export { Message } from './Result'
+export { Logger } from './Logger'
+export { Security } from './Security'

@@ -1,5 +1,5 @@
 import { default as _ } from 'lodash'
-import { getMessage } from './Result'
+import { Message } from './Result'
 import { default as validate } from 'validate.js'
 import { default as moment } from 'moment'
 
@@ -33,21 +33,23 @@ validate.extend(validate.validators.datetime, {
 export class CentralizedApi {
   
   static async Execute (req, res, next) {
-    let Result = getMessage(200)
+    let Result = Message(200)
     let execParams =  (req.method === "GET" ? req.query : req.body)
     try {
       let parameters = await CentralizedApi.ValidateParameters(execParams)
+      console.log(parameters)
       let result = await CentralizedApi.Invoke(parameters)
       Result.result = result
     }
     catch(err) {
       if(!err.code) {
-        Result = getMessage(500)
+        Result = Message(500)
         Result.message = err
       } else {
         Result = err
       }
     }
+    res.Result = Result
     res.send(Result)
     next()
   }
@@ -58,16 +60,16 @@ export class CentralizedApi {
       let interSecs = _.intersectionBy(REQUIRE_KEYS, inputKeys)
 
       if (inputKeys.length === 0) {
-        reject(getMessage(530))
+        reject(Message(530))
       }
       if ( !_.isEqual(REQUIRE_KEYS.sort(), interSecs.sort())) {
-        reject(getMessage(530))
+        reject(Message(530))
       }
 
       if (_.includes(inputKeys, 'validator')) {
         let message = CentralizedApi.ValidType(params)
         if (message !== undefined) {
-          let msg = getMessage(530)
+          let msg = Message(530)
           msg.message.en_US = message
           reject(msg)
         }
@@ -92,5 +94,15 @@ export class CentralizedApi {
       .then(result => resolve(result))
       .catch(err => reject(err))
     })
+  }
+
+  static PrepareRequestLog (req, res, next) {
+    let log = UserAgent.GetUAInfo(req)
+    log.uuid = uuid.v1()
+    log.sessionID = req.sessionID
+    log.transType = 'input'
+    req.log = log
+    req.logPath = LOG_PATH.path
+    next()
   }
 }

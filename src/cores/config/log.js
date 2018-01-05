@@ -1,3 +1,3 @@
 export const LOG_PATH = {
-  path: '/logs'
+  path: 'logs'
 }

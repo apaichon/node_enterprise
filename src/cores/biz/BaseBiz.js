@@ -50,4 +50,28 @@ export class BaseBiz {
     connected = await this.Db.Close()
     return results
   }
+
+  async GetOne (condition) {
+    let connected = await this.Db.Open()
+    let results = await this.Db.FindOne(condition)
+    connected = await this.Db.Close()
+    return results
+  }
+
+  async Count (condition) {
+    let func = () => this.Db.Count(condition) 
+    return this.CommonExec(func)
+  }
+
+  async EditAdd (dataWithCondition) {
+    let func = () => this.Db.Upsert(dataWithCondition) 
+    return this.CommonExec(func)
+  }
+
+  async CommonExec (func) {
+    let connected = await this.Db.Open()
+    let result = await func()
+    connected = await this.Db.Close()
+    return result
+  } 
 }

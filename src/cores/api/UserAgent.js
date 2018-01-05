@@ -6,6 +6,7 @@ export class UserAgent {
     let info = {}
     let agent = ua.parse(req.headers['user-agent'])
     
+    info.uuid = req.uuid || ''
     info.sessionID = req.sessionID || ''
     info.ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
     info.application = req.body.application || ''

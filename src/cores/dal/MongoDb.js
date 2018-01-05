@@ -123,6 +123,22 @@ export class MongoDb {
   }
 
   /**
+   * Upsert
+   */
+  Upsert (dataWithCondition) {
+    let { data, condition } = dataWithCondition
+    let option = { upsert: true }
+    data = {'$set': data }
+    return new Promise((resolve, reject) => {
+      this.Db.collection(this.Collection)
+      .update(condition, data, option, (err, result) => {
+        if (err) reject(err)
+        resolve(result)
+      })
+    })
+  }
+
+  /**
    * Remove data
    * @param {*} conditionWithOption 
    */
@@ -150,5 +166,27 @@ export class MongoDb {
       })
     })
   }
+
+  FindOne (condition) {
+    return new Promise((resolve, reject) => {
+      this.Db.collection(this.Collection)
+      .findOne(condition, (err, result) => {
+        if (err) reject(err)
+        resolve(result)
+      })
+    })
+  }
+
+  Count (condition) {
+    return new Promise((resolve, reject) => {
+      this.Db.collection(this.Collection)
+      .count(condition, (err, result) => {
+        if (err) reject(err)
+        resolve(result)
+      })
+    })
+  }
+
+
 
 }

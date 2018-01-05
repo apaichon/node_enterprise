@@ -6,6 +6,11 @@ const Results = [
     status: 'completed',
     result: {}
   },
+  {
+    code: 401,
+    status: 'error',
+    message: 'Unauthorized'
+  },
   { 
     code: 500, 
     status: 'error',
@@ -24,7 +29,7 @@ const Results = [
   }
 ]
 
-export const getMessage = (code) => {
+export const Message = (code) => {
   let result = _.find(Results, (data) => {
     return data.code === code
   })
