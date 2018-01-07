@@ -19,7 +19,7 @@ describe('Members', () => {
   let updateMember = random.randomMember()
   let updateData = {
     condition: {
-      name: memberInfo.name
+      name: memberInfo.name +2
     },
     data: {
       email: updateMember.email

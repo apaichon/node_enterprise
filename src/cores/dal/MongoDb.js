@@ -1,8 +1,12 @@
 import { MongoClient } from 'mongodb'
 import { DB_SERVER } from '../config/db'
 
+/**
+ * @class MongoDb
+ * @classdesc This class is managing MongoDB.
+ */
 export class MongoDb {
-
+  /** @constructs This construtor function must assign collection name.*/
   constructor (collectionName) {
     this.Collection = collectionName
     switch(process.env) {
@@ -16,10 +20,6 @@ export class MongoDb {
   }
 
   /**
-   * Properties
-   */
-
-  /**
    * Collection Name Property
    */
   set Collection (collectionName) {
@@ -30,7 +30,7 @@ export class MongoDb {
   }
 
   /**
-   * Database url property for set connection string of MongoDB.
+   * Database url property for get/set connection string of MongoDB.
    */
   set DbUrl (url) {
     this._dbUrl = url
@@ -60,7 +60,6 @@ export class MongoDb {
 
   /**
    * Open database.
-   * @param {*} callback 
    */
   Open () {
     this.IsConnected = false
@@ -77,7 +76,6 @@ export class MongoDb {
 
   /**
    * Close database.
-   * @param {*} callback 
    */
   Close () {
     return new Promise((resolve, reject) => {
@@ -89,10 +87,9 @@ export class MongoDb {
   }
   /**
    * Insert data to database.
-   * @param {*} data 
-   * @param {*} callback 
+   * @param {json} data  - format as a json.
+   * @returns {json} result - ops
    */
-  
   Insert (data) {
     return new Promise((resolve, reject) => {
       this.Db.collection(this.Collection)
@@ -186,7 +183,4 @@ export class MongoDb {
       })
     })
   }
-
-
-
 }

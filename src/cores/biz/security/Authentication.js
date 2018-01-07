@@ -1,11 +1,3 @@
-
-// All features
-/*LogIn
-LogOut
-RegisterSession
-ValidateUser
-ValidateSession
-*/
 import { BaseBiz } from '../BaseBiz'
 import { default as validate } from 'validate.js'
 import { UserValidator } from '../../validators'
@@ -37,7 +29,8 @@ export default class extends BaseBiz {
 
   async LogOut (userInfo) {
     let { username, sessionID } = userInfo
-    let removed = await this.Delete({ username, sessionID })
+    let condition = { condition: { username, sessionID } }
+    let removed = await this.Delete(condition)
     return removed
   }
 
@@ -64,7 +57,6 @@ export default class extends BaseBiz {
   }
 
   async ValidateSession (sessionID) {
-    // session is exist
     let sessionInfo = await this.GetOne({ sessionID: sessionID })
     return sessionInfo
   }

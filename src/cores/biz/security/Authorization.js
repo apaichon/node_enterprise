@@ -1,7 +1,6 @@
 import { BaseBiz } from '../BaseBiz'
-
+import ExceptionApi from './ExceptionApi'
 const MAIN_COLLECTION = 'authorization'
-const EXCEPTION_API_COLLECTION = 'exceptionApi'
 
 export default class extends BaseBiz {
   constructor() {
@@ -11,27 +10,14 @@ export default class extends BaseBiz {
     })
   }
 
-  async ValidateApiPermission (reqInfo) {
-    let isGrant = await this.GetApiPermission(reqInfo)
-    if (isGrant) {
-      return true
-    } else {
-      return false
-    }
-  }
-
   async IsExceptionApi (methodInfo) {
-    let exceptApiDb = new BaseBiz({
-      dataProvider: 'MongoDB',
-      collection: EXCEPTION_API_COLLECTION
-    })
+    let exceptApiDb = new ExceptionApi ()
     let isException = await exceptApiDb.Count(methodInfo)
     return isException
   }
 
   async GetApiPermission (reqInfo) {
-    let { username, application, className, method } = reqInfo
-    let isGrant = await this.Get({username, application, className, method})
+    let isGrant = await this.Count(reqInfo)
     return isGrant
   }
 

@@ -4,15 +4,16 @@
   "description": "NodeJS Rest Api for Enterprise",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register ./src/cores/test/**/*.js",
+    "test": "mocha --compilers js:babel-core/register ./src/cores/test/**/*.js --reporter mochawesome",
     "testlist": "mocha --compilers js:babel-core/register ./src/cores/test/testList/*.js",
     "dev": "nodemon src/index.js --exec babel-node",
     "es6": "nodemon src/labs/lab1/es6/index.js --exec babel-node",
-    "gen": "nodemon src/cores/test/generateTest.js --exec babel-node",
+    "gen": "babel-node src/cores/test/generateTest.js",
     "lab2-3": "nodemon src/labs/lab2/lab2-3/index.js --exec babel-node",
     "lab2-4": "nodemon src/labs/lab2/lab2-4/index.js --exec babel-node",
     "lab2-5": "nodemon src/labs/lab2/lab2-5/index.js --exec babel-node",
     "lab2-6": "nodemon src/labs/lab2/lab2-6/index.js --exec babel-node",
+    "lab2-7": "nodemon src/labs/lab2/lab2-7/index.js --exec babel-node",
     "lab3-1": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-1/index.js",
     "lab3-2": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-2/index.js",
     "lab3-3": "mocha --compilers js:babel-core/register ./src/labs/lab3/lab3-3/index.js",
@@ -74,6 +75,7 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "mocha": "^4.0.1",
+    "mochawesome": "^3.0.1",
     "nodemon": "^1.11.0",
     "regenerator-runtime": "^0.10.5"
   }
